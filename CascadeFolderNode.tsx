@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
 import { DocumentItem } from '@/types';
 import {
-  Motion01Icon,
+  BookOpen02Icon,
   ChevronDownIcon,
   ChevronRightIcon,
   FileAddIcon,
@@ -556,7 +556,7 @@ export const CascadeFolderNode: React.FC<CascadeFolderNodeProps> = React.memo(({
           className="w-4 h-4 flex items-center justify-center text-[#777777] group-hover:text-[#dcddde] hover:text-white shrink-0 relative cursor-pointer"
         >
           <span className="flex items-center justify-center group-hover:hidden text-[#777777]">
-            <Motion01Icon size={12} />
+            <BookOpen02Icon size={12} />
           </span>
           <span className="hidden group-hover:flex items-center justify-center text-[#dcddde]">
             {isOpen ? <ChevronDownIcon size={12} /> : <ChevronRightIcon size={12} />}

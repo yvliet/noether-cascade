@@ -16,12 +16,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
+        "../Flint/src/*",
         "../../src/*"
       ]
     },
     "outDir": "./dist"
   },
   "include": [
-    "./**/*"
+    "./*.ts",
+    "./*.tsx"
   ]
 }

@@ -208,7 +208,7 @@ export class CascadeExtension extends Extension {
       id: 'cascade',
       name: 'Cascade',
       category: 'Common',
-      keywords: ['cascade', 'book', 'flow', 'motion'],
+      keywords: ['cascade', 'book', 'flow', 'pages', 'reading', 'motion'],
       component: ({ size, className }) => <CascadeIcon size={size} className={className} />,
       defaultKeys: ['cascade', 'cascade book', 'cascade_book', 'cascadebook'],
     });

@@ -1,7 +1,7 @@
 {
   "id": "flint-cascade",
   "name": "Cascade",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Organize notes into sequential cascades (books) with status-bar linking, graph backlinks, and custom sidebar folders.",
   "author": "Yuliet Li",
   "minAppVersion": "0.4.0",
@@ -14,6 +14,6 @@
     "graph",
     "backlinks"
   ],
-  "icon": "motion",
+  "icon": "book-open",
   "repoUrl": "https://github.com/yvliet/flint-cascade"
 }
