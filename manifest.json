@@ -1,9 +1,10 @@
 {
-  "id": "flint-cascade",
+  "id": "noether-cascade",
   "name": "Cascade",
   "version": "1.0.1",
   "description": "Organize notes into sequential cascades (books) with status-bar linking, graph backlinks, and custom sidebar folders.",
   "author": "Yuliet Li",
+  "authorUrl": "https://github.com/yvliet",
   "minAppVersion": "0.4.0",
   "category": "Productivity",
   "tags": [
@@ -14,6 +15,14 @@
     "graph",
     "backlinks"
   ],
-  "icon": "book-open",
-  "repoUrl": "https://github.com/yvliet/flint-cascade"
+  "icon": {
+    "name": "book-open-02",
+    "type": "gradient",
+    "gradientColors": [
+      "#312e81",
+      "#1e1b4b"
+    ],
+    "gradientDirection": "135deg"
+  },
+  "repoUrl": "https://github.com/yvliet/noether-cascade"
 }
