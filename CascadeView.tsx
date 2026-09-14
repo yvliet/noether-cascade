@@ -165,12 +165,12 @@ export const CascadeView: React.FC = React.memo(() => {
       className="flex flex-col h-full select-none text-xs"
     >
       {/* Top Action Toolbar Header */}
-      <div className="h-9 px-2 flex items-center justify-center gap-1.5 text-[var(--flint-text-muted)] shrink-0">
+      <div className="h-9 px-2 flex items-center justify-center gap-1.5 text-[var(--noether-text-muted)] shrink-0">
         <button
           type="button"
           onClick={handleCreateNewCascade}
           title="New Cascade book"
-          className="p-1.5 rounded hover:bg-[var(--flint-bg-card-hover)] text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] cursor-pointer"
+          className="p-1.5 rounded hover:bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer"
         >
           <FolderAddIcon size={14} />
         </button>
@@ -184,8 +184,8 @@ export const CascadeView: React.FC = React.memo(() => {
           title={isSearchOpen ? 'Close search' : 'Search cascade pages'}
           className={`p-1.5 rounded cursor-pointer ${
             isSearchOpen
-              ? 'bg-[var(--flint-bg-card-hover)] text-[var(--flint-text-primary)]'
-              : 'text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] hover:bg-[var(--flint-bg-card-hover)]'
+              ? 'bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-primary)]'
+              : 'text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] hover:bg-[var(--noether-bg-card-hover)]'
           }`}
         >
           <Search01Icon size={14} />
@@ -204,28 +204,28 @@ export const CascadeView: React.FC = React.memo(() => {
       {/* Search Input Row (Toggled) */}
       {isSearchOpen && (
         <div className="pt-1 px-2 pb-1.5 flex flex-col gap-1.5">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--flint-bg-input)] border border-[var(--flint-border-base)] focus-within:border-[var(--flint-accent)]">
-            <Search01Icon size={14} className="text-[var(--flint-text-muted)] shrink-0" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--noether-bg-input)] border border-[var(--noether-border-base)] focus-within:border-[var(--noether-accent)]">
+            <Search01Icon size={14} className="text-[var(--noether-text-muted)] shrink-0" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search cascade books & pages..."
               autoFocus
-              className="bg-transparent outline-none flex-1 text-xs text-[var(--flint-text-primary)] placeholder-[var(--flint-text-faint)] min-w-0"
+              className="bg-transparent outline-none flex-1 text-xs text-[var(--noether-text-primary)] placeholder-[var(--noether-text-faint)] min-w-0"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
                 title="Clear search"
-                className="p-0.5 rounded text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] cursor-pointer"
+                className="p-0.5 rounded text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer"
               >
                 <CancelCircleIcon size={13} />
               </button>
             )}
           </div>
-          <div className="border-b border-[var(--flint-border-base)] -mx-2 mt-0.5 opacity-60" />
+          <div className="border-b border-[var(--noether-border-base)] -mx-2 mt-0.5 opacity-60" />
         </div>
       )}
 
@@ -238,7 +238,7 @@ export const CascadeView: React.FC = React.memo(() => {
             <span className="text-[11px] text-[#555]">Organize notes into sequential books</span>
           </div>
         ) : filteredCascades.length === 0 ? (
-          <div className="px-2 py-4 text-xs text-[var(--flint-text-muted)] select-none text-center">
+          <div className="px-2 py-4 text-xs text-[var(--noether-text-muted)] select-none text-center">
             No matching cascade books found.
           </div>
         ) : (

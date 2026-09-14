@@ -16,12 +16,12 @@ export const cascadeReadme = `# Cascade Plugin
 2. **Status Bar Cascade Linking**:
    - Registers an interactive **Cascade icon** on the status bar.
    - Click to link notes into sequential books or adjust page numbers.
-   - Automatically registers sequential backlinks into SQLite so Flint's **Graph View** displays connected nodes without modifying your note content.
+   - Automatically registers sequential backlinks into SQLite so Noether's **Graph View** displays connected nodes without modifying your note content.
 
 3. **Sequential Page Navigation**:
    - Navigate backwards with \`Alt + ,\` (Previous page).
    - Navigate forwards with \`Alt + .\` (Next page).
-   - Fully customizable hotkeys in Flint settings.
+   - Fully customizable hotkeys in Noether settings.
 
 4. **Slash Command & Palette Integration**:
    - Type \`/cascade\` in the editor to quickly assign or reassign notes to cascades.

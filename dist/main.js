@@ -72999,7 +72999,7 @@ var init_ExtensionAppIcon = __esm({
             generateCompanionGradientColor(resolvedConfig.backgroundColor)
           ];
         } else {
-          const normalizedKey = (glyphName || name || "").toLowerCase().trim().replace(/^noether-/, "").replace(/^flint-/, "");
+          const normalizedKey = (glyphName || name || "").toLowerCase().trim().replace(/^noether-/, "");
           gradientStops = KNOWN_CORE_GRADIENTS[normalizedKey] || hashStringToGradient(normalizedKey || "extension");
         }
         backgroundStyle.backgroundImage = `linear-gradient(${dir}, ${gradientStops.join(", ")})`;
@@ -73057,7 +73057,7 @@ var init_ExtensionAppIcon = __esm({
             }
           );
         }
-        const normalizedKey = glyphName.toLowerCase().trim().replace(/^noether-/, "").replace(/^flint-/, "");
+        const normalizedKey = glyphName.toLowerCase().trim().replace(/^noether-/, "");
         const StaticComp = FAST_STATIC_ICON_MAP[normalizedKey] || FAST_STATIC_ICON_MAP[glyphName];
         if (StaticComp) {
           return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
@@ -84925,7 +84925,7 @@ var DEFAULT_CASCADE_SETTINGS = {
   showInStatusBar: true,
   autoRenameSuffix: true
 };
-var STORAGE_KEY2 = "flint_cascade_settings_v1";
+var STORAGE_KEY2 = "noether_cascade_settings_v1";
 function getStoredSettings() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY2);
@@ -85453,9 +85453,9 @@ var CascadeStatusBarItem = import_react28.default.memo(() => {
         onClick: handleTogglePopover,
         title: isInCascadeMode ? `Cascade: "${cascadeInfo.cascadeName}" (Page ${formatCascadePageDisplay(cascadeInfo.pageNumber ?? 0)}${totalPages > 0 ? ` of ${totalPages}` : ""})
 Click to manage cascade links` : "Add note to Cascade\n(Create sequential note books linked in graph view)",
-        className: `rounded-[4px] transition-colors cursor-pointer select-none flex items-center justify-center ${isInCascadeMode ? "gap-1.5 px-1.5 py-0.5 text-[11px] text-[var(--flint-text-primary,#dcddde)] hover:text-white hover:bg-[var(--flint-bg-card-hover,#2a2a2a)] font-medium" : "p-1 text-[var(--flint-text-muted,#777)] hover:text-[var(--flint-text-primary,#dcddde)] hover:bg-[#242424]"}`,
+        className: `rounded-[4px] transition-colors cursor-pointer select-none flex items-center justify-center ${isInCascadeMode ? "gap-1.5 px-1.5 py-0.5 text-[11px] text-[var(--noether-text-primary,#dcddde)] hover:text-white hover:bg-[var(--noether-bg-card-hover,#2a2a2a)] font-medium" : "p-1 text-[var(--noether-text-muted,#777)] hover:text-[var(--noether-text-primary,#dcddde)] hover:bg-[#242424]"}`,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CascadeIcon, { size: 12, className: isInCascadeMode ? "text-[var(--flint-text-primary,#dcddde)]" : "text-[#777] hover:text-[#dcddde]" }),
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CascadeIcon, { size: 12, className: isInCascadeMode ? "text-[var(--noether-text-primary,#dcddde)]" : "text-[#777] hover:text-[#dcddde]" }),
           isInCascadeMode && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", { className: "truncate max-w-[140px]", children: [
             cascadeInfo.cascadeName,
             " ",
@@ -85477,7 +85477,7 @@ Click to manage cascade links` : "Add note to Cascade\n(Create sequential note b
           bottom: `${popoverPos.bottom}px`,
           right: `${popoverPos.right}px`
         },
-        className: "z-50 w-80 bg-[var(--flint-bg-card,#1e1e1e)] border border-[var(--flint-border-base,#333)] rounded-xl shadow-2xl p-3 text-xs text-[var(--flint-text-primary,#dcddde)] font-sans",
+        className: "z-50 w-80 bg-[var(--noether-bg-card,#1e1e1e)] border border-[var(--noether-border-base,#333)] rounded-xl shadow-2xl p-3 text-xs text-[var(--noether-text-primary,#dcddde)] font-sans",
         children: [
           cascadeInfo.isCascaded && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "mb-3 p-2 rounded-lg bg-[#252525] border border-[#333] flex items-center justify-between", children: [
             /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center gap-1.5 min-w-0", children: [
@@ -85625,7 +85625,7 @@ Click to manage cascade links` : "Add note to Cascade\n(Create sequential note b
                 );
               }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "pt-2 flex items-center justify-between gap-2 border-t border-[var(--flint-border-subtle,#2a2a2a)]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "pt-2 flex items-center justify-between gap-2 border-t border-[var(--noether-border-subtle,#2a2a2a)]", children: [
               cascadeInfo.isCascaded ? /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
                 "button",
                 {
@@ -85699,7 +85699,7 @@ var CascadeSettingsTab = () => {
             restoreDefaults();
             showToast("Restored Cascade defaults", "info");
           },
-          className: "flint-btn text-xs py-1 px-2.5 flex items-center gap-1.5",
+          className: "noether-btn text-xs py-1 px-2.5 flex items-center gap-1.5",
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RotateCcwIcon, { size: 12 }),
             /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { children: "Restore defaults" })
@@ -85724,7 +85724,7 @@ var CascadeSettingsTab = () => {
           {
             type: "button",
             onClick: handleOpenCascadeSidebar,
-            className: "flint-btn flex items-center gap-1.5",
+            className: "noether-btn flex items-center gap-1.5",
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(CascadeIcon, { size: 13 }),
               /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { children: "Open in Sidebar" })
@@ -85807,12 +85807,12 @@ var cascadeReadme = `# Cascade Plugin
 2. **Status Bar Cascade Linking**:
    - Registers an interactive **Cascade icon** on the status bar.
    - Click to link notes into sequential books or adjust page numbers.
-   - Automatically registers sequential backlinks into SQLite so Flint's **Graph View** displays connected nodes without modifying your note content.
+   - Automatically registers sequential backlinks into SQLite so Noether's **Graph View** displays connected nodes without modifying your note content.
 
 3. **Sequential Page Navigation**:
    - Navigate backwards with \`Alt + ,\` (Previous page).
    - Navigate forwards with \`Alt + .\` (Next page).
-   - Fully customizable hotkeys in Flint settings.
+   - Fully customizable hotkeys in Noether settings.
 
 4. **Slash Command & Palette Integration**:
    - Type \`/cascade\` in the editor to quickly assign or reassign notes to cascades.
@@ -87675,8 +87675,8 @@ var CascadeFolderNode = import_react37.default.memo(({
         }
       }
     };
-    window.addEventListener("flint:custom-drop", handleCustomDrop);
-    return () => window.removeEventListener("flint:custom-drop", handleCustomDrop);
+    window.addEventListener("noether:custom-drop", handleCustomDrop);
+    return () => window.removeEventListener("noether:custom-drop", handleCustomDrop);
   }, [cascade.name, cascade.notes.length]);
   const actions = (0, import_react37.useMemo)(
     () => [
@@ -87890,14 +87890,14 @@ var CascadeView = import_react38.default.memo(() => {
       onContextMenu: handleBackgroundContextMenu,
       className: "flex flex-col h-full select-none text-xs",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "h-9 px-2 flex items-center justify-center gap-1.5 text-[var(--flint-text-muted)] shrink-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "h-9 px-2 flex items-center justify-center gap-1.5 text-[var(--noether-text-muted)] shrink-0", children: [
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "button",
             {
               type: "button",
               onClick: handleCreateNewCascade,
               title: "New Cascade book",
-              className: "p-1.5 rounded hover:bg-[var(--flint-bg-card-hover)] text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] cursor-pointer",
+              className: "p-1.5 rounded hover:bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer",
               children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(FolderAddIcon, { size: 14 })
             }
           ),
@@ -87910,7 +87910,7 @@ var CascadeView = import_react38.default.memo(() => {
                 if (isSearchOpen) setSearchQuery("");
               },
               title: isSearchOpen ? "Close search" : "Search cascade pages",
-              className: `p-1.5 rounded cursor-pointer ${isSearchOpen ? "bg-[var(--flint-bg-card-hover)] text-[var(--flint-text-primary)]" : "text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] hover:bg-[var(--flint-bg-card-hover)]"}`,
+              className: `p-1.5 rounded cursor-pointer ${isSearchOpen ? "bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-primary)]" : "text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] hover:bg-[var(--noether-bg-card-hover)]"}`,
               children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Search01Icon, { size: 14 })
             }
           ),
@@ -87927,8 +87927,8 @@ var CascadeView = import_react38.default.memo(() => {
           )
         ] }),
         isSearchOpen && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "pt-1 px-2 pb-1.5 flex flex-col gap-1.5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--flint-bg-input)] border border-[var(--flint-border-base)] focus-within:border-[var(--flint-accent)]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Search01Icon, { size: 14, className: "text-[var(--flint-text-muted)] shrink-0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--noether-bg-input)] border border-[var(--noether-border-base)] focus-within:border-[var(--noether-accent)]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Search01Icon, { size: 14, className: "text-[var(--noether-text-muted)] shrink-0" }),
             /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
               "input",
               {
@@ -87937,7 +87937,7 @@ var CascadeView = import_react38.default.memo(() => {
                 onChange: (e2) => setSearchQuery(e2.target.value),
                 placeholder: "Search cascade books & pages...",
                 autoFocus: true,
-                className: "bg-transparent outline-none flex-1 text-xs text-[var(--flint-text-primary)] placeholder-[var(--flint-text-faint)] min-w-0"
+                className: "bg-transparent outline-none flex-1 text-xs text-[var(--noether-text-primary)] placeholder-[var(--noether-text-faint)] min-w-0"
               }
             ),
             searchQuery && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
@@ -87946,18 +87946,18 @@ var CascadeView = import_react38.default.memo(() => {
                 type: "button",
                 onClick: () => setSearchQuery(""),
                 title: "Clear search",
-                className: "p-0.5 rounded text-[var(--flint-text-muted)] hover:text-[var(--flint-text-primary)] cursor-pointer",
+                className: "p-0.5 rounded text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer",
                 children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CancelCircleIcon, { size: 13 })
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "border-b border-[var(--flint-border-base)] -mx-2 mt-0.5 opacity-60" })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "border-b border-[var(--noether-border-base)] -mx-2 mt-0.5 opacity-60" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex-1 min-h-0 overflow-y-auto px-2 py-1 custom-scrollbar flex flex-col gap-0.5", children: allCascades.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex flex-col items-center justify-center h-48 text-[#666] text-xs gap-2 select-none text-center", children: [
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CascadeIcon, { size: 24, className: "opacity-40" }),
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { children: "No cascades yet" }),
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-[11px] text-[#555]", children: "Organize notes into sequential books" })
-        ] }) : filteredCascades.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "px-2 py-4 text-xs text-[var(--flint-text-muted)] select-none text-center", children: "No matching cascade books found." }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex flex-col gap-0.5 flex-1", children: filteredCascades.map((cascade) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        ] }) : filteredCascades.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "px-2 py-4 text-xs text-[var(--noether-text-muted)] select-none text-center", children: "No matching cascade books found." }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex flex-col gap-0.5 flex-1", children: filteredCascades.map((cascade) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           CascadeFolderNode,
           {
             cascade,
@@ -87975,7 +87975,7 @@ CascadeView.displayName = "CascadeView";
 // CascadeExtension.tsx
 var import_jsx_runtime34 = require("react/jsx-runtime");
 var CASCADE_MANIFEST = {
-  id: "flint-cascade",
+  id: "noether-cascade",
   name: "Cascade",
   version: "1.0.0",
   description: "Organize notes into sequential cascades (books) with status-bar linking, graph backlinks, and custom sidebar folders.",
@@ -88076,7 +88076,7 @@ var CascadeExtension = class extends Extension {
               appInstance2.workspace.setSidebarOpen("left", true);
               appInstance2.workspace.setActiveSidebarTab("left", "cascade");
               window.dispatchEvent(
-                new CustomEvent("flint:reveal-tree-item", {
+                new CustomEvent("noether:reveal-tree-item", {
                   detail: { id: `cascade-${cascadeName}` }
                 })
               );

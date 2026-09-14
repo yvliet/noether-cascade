@@ -504,8 +504,8 @@ export const CascadeFolderNode: React.FC<CascadeFolderNodeProps> = React.memo(({
       }
     };
 
-    window.addEventListener('flint:custom-drop', handleCustomDrop);
-    return () => window.removeEventListener('flint:custom-drop', handleCustomDrop);
+    window.addEventListener('noether:custom-drop', handleCustomDrop);
+    return () => window.removeEventListener('noether:custom-drop', handleCustomDrop);
   }, [cascade.name, cascade.notes.length]);
 
   const actions: TreeNodeAction[] = useMemo(

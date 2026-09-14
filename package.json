@@ -1,5 +1,5 @@
 {
-  "name": "flint-cascade",
+  "name": "noether-cascade",
   "version": "1.1.0",
   "description": "Organize notes into sequential cascades (books) with status-bar linking, graph backlinks, and custom sidebar folders.",
   "main": "dist/main.js",
@@ -9,8 +9,8 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
-    "flint",
-    "flint-extension",
+    "noether",
+    "noether-extension",
     "cascade",
     "book",
     "pages",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yvliet/flint-cascade.git"
+    "url": "https://github.com/yvliet/noether-cascade.git"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
@@ -31,7 +31,7 @@
     "typescript": "^5.8.2"
   },
   "peerDependencies": {
-    "flint": "^0.4.0",
+    "noether": "^0.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.24.2"

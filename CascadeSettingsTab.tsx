@@ -53,7 +53,7 @@ export const CascadeSettingsTab: React.FC = () => {
               restoreDefaults();
               showToast('Restored Cascade defaults', 'info');
             }}
-            className="flint-btn text-xs py-1 px-2.5 flex items-center gap-1.5"
+            className="noether-btn text-xs py-1 px-2.5 flex items-center gap-1.5"
           >
             <RotateCcwIcon size={12} />
             <span>Restore defaults</span>
@@ -74,7 +74,7 @@ export const CascadeSettingsTab: React.FC = () => {
           <button
             type="button"
             onClick={handleOpenCascadeSidebar}
-            className="flint-btn flex items-center gap-1.5"
+            className="noether-btn flex items-center gap-1.5"
           >
             <CascadeIcon size={13} />
             <span>Open in Sidebar</span>

@@ -178,11 +178,11 @@ export const CascadeStatusBarItem: React.FC = React.memo(() => {
           }
           className={`rounded-[4px] transition-colors cursor-pointer select-none flex items-center justify-center ${
             isInCascadeMode
-              ? 'gap-1.5 px-1.5 py-0.5 text-[11px] text-[var(--flint-text-primary,#dcddde)] hover:text-white hover:bg-[var(--flint-bg-card-hover,#2a2a2a)] font-medium'
-              : 'p-1 text-[var(--flint-text-muted,#777)] hover:text-[var(--flint-text-primary,#dcddde)] hover:bg-[#242424]'
+              ? 'gap-1.5 px-1.5 py-0.5 text-[11px] text-[var(--noether-text-primary,#dcddde)] hover:text-white hover:bg-[var(--noether-bg-card-hover,#2a2a2a)] font-medium'
+              : 'p-1 text-[var(--noether-text-muted,#777)] hover:text-[var(--noether-text-primary,#dcddde)] hover:bg-[#242424]'
           }`}
         >
-          <CascadeIcon size={12} className={isInCascadeMode ? 'text-[var(--flint-text-primary,#dcddde)]' : 'text-[#777] hover:text-[#dcddde]'} />
+          <CascadeIcon size={12} className={isInCascadeMode ? 'text-[var(--noether-text-primary,#dcddde)]' : 'text-[#777] hover:text-[#dcddde]'} />
           {isInCascadeMode && (
             <span className="truncate max-w-[140px]">
               {cascadeInfo.cascadeName} <span className="text-[10px] opacity-70">[{formatCascadePageDisplay(cascadeInfo.pageNumber ?? 0)}]</span>
@@ -200,7 +200,7 @@ export const CascadeStatusBarItem: React.FC = React.memo(() => {
             bottom: `${popoverPos.bottom}px`,
             right: `${popoverPos.right}px`,
           }}
-          className="z-50 w-80 bg-[var(--flint-bg-card,#1e1e1e)] border border-[var(--flint-border-base,#333)] rounded-xl shadow-2xl p-3 text-xs text-[var(--flint-text-primary,#dcddde)] font-sans"
+          className="z-50 w-80 bg-[var(--noether-bg-card,#1e1e1e)] border border-[var(--noether-border-base,#333)] rounded-xl shadow-2xl p-3 text-xs text-[var(--noether-text-primary,#dcddde)] font-sans"
         >
           {/* Quick Page Navigation if cascaded */}
           {cascadeInfo.isCascaded && (
@@ -352,7 +352,7 @@ export const CascadeStatusBarItem: React.FC = React.memo(() => {
             )}
 
             {/* Action Buttons */}
-            <div className="pt-2 flex items-center justify-between gap-2 border-t border-[var(--flint-border-subtle,#2a2a2a)]">
+            <div className="pt-2 flex items-center justify-between gap-2 border-t border-[var(--noether-border-subtle,#2a2a2a)]">
               {cascadeInfo.isCascaded ? (
                 <button
                   type="button"

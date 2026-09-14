@@ -5,7 +5,7 @@
  * Registers status bar page linking, Roman numeral/negative page properties,
  * sidebar virtual folders, sequential page navigation, and commands.
  *
- * Uses native FlintApp APIs (app.vault.activeDocument, app.workspace.openInputDialog).
+ * Uses native NoetherApp APIs (app.vault.activeDocument, app.workspace.openInputDialog).
  *
  * @since 0.1.0
  */
@@ -13,7 +13,7 @@
 import React from 'react';
 import { Extension } from '@/core/extensions/Extension';
 import { ExtensionManifest, McpToolResult } from '@/core/extensions/types';
-import { FlintApp } from '@/core/app/FlintApp';
+import { NoetherApp } from '@/core/app/NoetherApp';
 import { CascadeIcon, CascadeBookIcon } from './cascadeIcons';
 import { CascadeStatusBarItem } from './CascadeStatusBarItem';
 import { CascadeSettingsTab } from './CascadeSettingsTab';
@@ -33,7 +33,7 @@ import { useCascadeSettings } from './cascadeSettings';
 import { CascadeView } from './CascadeView';
 
 export const CASCADE_MANIFEST: ExtensionManifest = {
-  id: 'flint-cascade',
+  id: 'noether-cascade',
   name: 'Cascade',
   version: '1.0.0',
   description: 'Organize notes into sequential cascades (books) with status-bar linking, graph backlinks, and custom sidebar folders.',
@@ -44,7 +44,7 @@ export const CASCADE_MANIFEST: ExtensionManifest = {
 };
 
 export class CascadeExtension extends Extension {
-  constructor(app: FlintApp, manifest: ExtensionManifest = CASCADE_MANIFEST) {
+  constructor(app: NoetherApp, manifest: ExtensionManifest = CASCADE_MANIFEST) {
     super(app, manifest);
   }
 
@@ -163,7 +163,7 @@ export class CascadeExtension extends Extension {
               appInstance.workspace.setSidebarOpen('left', true);
               appInstance.workspace.setActiveSidebarTab('left', 'cascade');
               window.dispatchEvent(
-                new CustomEvent('flint:reveal-tree-item', {
+                new CustomEvent('noether:reveal-tree-item', {
                   detail: { id: `cascade-${cascadeName}` },
                 })
               );

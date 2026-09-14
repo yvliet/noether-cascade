@@ -28,7 +28,7 @@ export interface CascadeSettingsState {
   restoreDefaults: () => void;
 }
 
-const STORAGE_KEY = 'flint_cascade_settings_v1';
+const STORAGE_KEY = 'noether_cascade_settings_v1';
 
 function getStoredSettings(): Partial<CascadeSettingsState> {
   try {
