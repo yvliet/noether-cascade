@@ -415,6 +415,116 @@ export class CascadeExtension extends Extension {
       render: () => <CascadeSettingsTab />,
     });
 
+    // 10a. Register Tab Context Menu Action (Right-click tab)
+    if (typeof (this as any).registerTabContextMenuAction === 'function') {
+      (this as any).registerTabContextMenuAction({
+        id: 'cascade:tab-manage-cascade',
+        title: 'Manage Cascade Page...',
+        order: 50,
+        action: async (tab: any) => {
+          const docId = tab.document_id;
+          const doc = this.app.hearth.getDocumentById(docId);
+          if (!doc) return;
+          const info = getCascadeInfo(doc);
+          const currentBook = info.cascadeName || 'Default Cascade';
+          const currentPage = info.pageNumber ?? 1;
+
+          this.app.workspace.openInputDialog({
+            title: 'Assign Note to Cascade (Book Name, Page Number)',
+            defaultValue: `${currentBook}, ${currentPage}`,
+            placeholder: 'e.g. Novel, 1',
+            confirmText: 'Save Cascade',
+            onConfirm: async (val: string) => {
+              if (!val.trim()) return;
+              const parts = val.split(',');
+              const bookName = parts[0].trim() || 'Default Cascade';
+              const pageNum = parts[1] ? (parseCascadePageString(parts[1].trim()) ?? 1) : 1;
+              await assignNoteToCascade(doc.id, bookName, pageNum);
+            },
+          });
+        },
+      });
+    }
+
+    // 10b. Register Omnibox Search Provider (Ctrl+P / Ctrl+K with 'cas:')
+    if (typeof (this as any).registerSearchProvider === 'function') {
+      (this as any).registerSearchProvider({
+        id: 'cascade-search',
+        prefix: 'cas:',
+        placeholder: 'Search cascades, books, or sequential pages...',
+        search: async (query: string) => {
+          const q = query.toLowerCase().trim();
+          const allCascades = getAllCascades(this.app.hearth.documents);
+          const items: any[] = [];
+
+          for (const c of allCascades) {
+            const cascadeName = c.name;
+            const notes = c.notes;
+            if (!q || cascadeName.toLowerCase().includes(q)) {
+              items.push({
+                id: `cascade:${cascadeName}`,
+                title: `Cascade: ${cascadeName}`,
+                description: `${notes.length} sequential pages in this book`,
+                category: 'Cascade Books',
+                badge: `${notes.length} pages`,
+                onSelect: () => {
+                  this.app.workspace.setSidebarOpen('left', true);
+                  this.app.workspace.setActiveSidebarTab('left', 'cascade');
+                },
+              });
+            }
+
+            for (const n of notes) {
+              const doc = this.app.hearth.getDocumentById(n.id);
+              const title = doc?.title || n.title || 'Untitled';
+              if (q && (title.toLowerCase().includes(q) || String(n.page).includes(q))) {
+                items.push({
+                  id: `cascade-page:${n.id}`,
+                  title: `${title} [Page ${n.page}]`,
+                  description: `Book: ${cascadeName}`,
+                  category: 'Cascade Pages',
+                  badge: `p.${n.page}`,
+                  onSelect: () => {
+                    this.app.workspace.openTab(n.id);
+                  },
+                });
+              }
+            }
+          }
+
+          return items;
+        },
+      });
+    }
+
+    // 10c. Register Universal Document Title Decorator (Cascade pill in header)
+    if (typeof (this as any).registerDocumentTitleDecorator === 'function') {
+      (this as any).registerDocumentTitleDecorator({
+        id: 'cascade:doc-badge',
+        order: 30,
+        render: (doc: any) => {
+          if (!doc) return null;
+          const info = getCascadeInfo(doc);
+          if (!info.cascadeName) return null;
+          const pageStr = info.pageNumber !== undefined ? formatCascadePageDisplay(info.pageNumber) : '1';
+          return React.createElement(
+            'span',
+            {
+              className: 'inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono cursor-pointer select-none bg-[var(--noether-btn-hover-bg,#333)] text-[var(--noether-text-muted,#888)] border border-[var(--noether-border,#222)] hover:text-[var(--noether-text,#fff)]',
+              title: `Cascade: ${info.cascadeName} (Page ${pageStr})`,
+              onClick: (e: React.MouseEvent) => {
+                e.stopPropagation();
+                this.app.workspace.setSidebarOpen('left', true);
+                this.app.workspace.setActiveSidebarTab('left', 'cascade');
+              },
+            },
+            React.createElement('span', { className: 'w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0' }),
+            React.createElement('span', null, `${info.cascadeName} [${pageStr}]`)
+          );
+        },
+      });
+    }
+
     // 11. Register MCP Tools
     // ── Tool: list ──
     this.registerTool({
