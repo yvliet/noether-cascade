@@ -23,6 +23,7 @@ import {
   CancelCircleIcon,
 } from '@/components/common/Icons';
 import { CollapseAllButton } from '@/components/common/CollapseAllButton';
+import { SidebarActionHeader, SidebarActionButton } from '@/components/common/SidebarActionHeader';
 import { CascadeFolderNode } from './CascadeFolderNode';
 import {
   getAllCascades,
@@ -165,31 +166,22 @@ export const CascadeView: React.FC = React.memo(() => {
       className="flex flex-col h-full select-none text-xs"
     >
       {/* Top Action Toolbar Header */}
-      <div className="h-9 px-2 flex items-center justify-center gap-1.5 text-[var(--noether-text-muted)] shrink-0">
-        <button
-          type="button"
+      <SidebarActionHeader>
+        <SidebarActionButton
           onClick={handleCreateNewCascade}
           title="New Cascade book"
-          className="p-1.5 rounded hover:bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer"
-        >
-          <FolderAddIcon size={14} />
-        </button>
+          icon={<FolderAddIcon size={16} />}
+        />
 
-        <button
-          type="button"
+        <SidebarActionButton
           onClick={() => {
             setIsSearchOpen(!isSearchOpen);
             if (isSearchOpen) setSearchQuery('');
           }}
+          isActive={isSearchOpen}
           title={isSearchOpen ? 'Close search' : 'Search cascade pages'}
-          className={`p-1.5 rounded cursor-pointer ${
-            isSearchOpen
-              ? 'bg-[var(--noether-bg-card-hover)] text-[var(--noether-text-primary)]'
-              : 'text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] hover:bg-[var(--noether-bg-card-hover)]'
-          }`}
-        >
-          <Search01Icon size={14} />
-        </button>
+          icon={<Search01Icon size={16} />}
+        />
 
         <CollapseAllButton
           isCollapsed={areAllCollapsed}
@@ -199,7 +191,7 @@ export const CascadeView: React.FC = React.memo(() => {
           expandedTitle="Collapse all books"
           disabledTitle="No books to collapse or expand"
         />
-      </div>
+      </SidebarActionHeader>
 
       {/* Search Input Row (Toggled) */}
       {isSearchOpen && (
