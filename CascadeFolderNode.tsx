@@ -553,7 +553,7 @@ export const CascadeFolderNode: React.FC<CascadeFolderNodeProps> = React.memo(({
             e.stopPropagation();
             handleToggleOpen();
           }}
-          className="w-4 h-4 flex items-center justify-center text-[#777777] group-hover:text-[#dcddde] hover:text-white shrink-0 relative cursor-pointer"
+          className="w-4 h-4 flex items-center justify-center text-[#777777] group-hover:text-[#dcddde] hover:text-white shrink-0 relative"
         >
           <span className="flex items-center justify-center group-hover:hidden text-[#777777]">
             <BookOpen02Icon size={12} />

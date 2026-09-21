@@ -52,6 +52,17 @@ const buildOptions = {
   alias: {
     '@': srcDir,
   },
+  plugins: [
+    {
+      name: 'ignore-url-queries',
+      setup(build) {
+        build.onResolve({ filter: /\?url$/ }, (args) => ({
+          path: args.path,
+          external: true,
+        }));
+      },
+    },
+  ],
   minify: !isWatch,
   sourcemap: isWatch ? 'inline' : false,
 };

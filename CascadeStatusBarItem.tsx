@@ -176,7 +176,7 @@ export const CascadeStatusBarItem: React.FC = React.memo(() => {
                 })\nClick to manage cascade links`
               : 'Add note to Cascade\n(Create sequential note books linked in graph view)'
           }
-          className={`rounded-[4px] transition-colors cursor-pointer select-none flex items-center justify-center ${
+          className={`rounded-[4px] select-none flex items-center justify-center ${
             isInCascadeMode
               ? 'gap-1.5 px-1.5 py-0.5 text-[11px] text-[var(--noether-text-primary,#dcddde)] hover:text-white hover:bg-[var(--noether-bg-card-hover,#2a2a2a)] font-medium'
               : 'p-1 text-[var(--noether-text-muted,#777)] hover:text-[var(--noether-text-primary,#dcddde)] hover:bg-[#242424]'
@@ -333,7 +333,7 @@ export const CascadeStatusBarItem: React.FC = React.memo(() => {
                             setIsOpen(false);
                           }
                         }}
-                        className={`flex items-center justify-between px-2 py-1 rounded text-[11px] cursor-pointer transition-colors ${
+                        className={`flex items-center justify-between px-2 py-1 rounded text-[11px] ${
                           isCurrent
                             ? 'bg-[#2a2a2a] text-white font-medium'
                             : 'text-[#aaa] hover:bg-[#252525] hover:text-white'

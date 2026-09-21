@@ -211,7 +211,7 @@ export const CascadeView: React.FC = React.memo(() => {
                 type="button"
                 onClick={() => setSearchQuery('')}
                 title="Clear search"
-                className="p-0.5 rounded text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)] cursor-pointer"
+                className="p-0.5 rounded text-[var(--noether-text-muted)] hover:text-[var(--noether-text-primary)]"
               >
                 <CancelCircleIcon size={13} />
               </button>

@@ -95,7 +95,7 @@ export const CascadeSettingsTab: React.FC = () => {
                 type="button"
                 onClick={() => setShowInStatusBar(DEFAULT_CASCADE_SETTINGS.showInStatusBar)}
                 title="Restore default (Enabled)"
-                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] transition-colors cursor-pointer shrink-0 flex items-center justify-center"
+                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] shrink-0 flex items-center justify-center"
               >
                 <RotateCcwIcon size={13} />
               </button>
@@ -118,7 +118,7 @@ export const CascadeSettingsTab: React.FC = () => {
                 type="button"
                 onClick={() => setAutoRenameSuffix(DEFAULT_CASCADE_SETTINGS.autoRenameSuffix)}
                 title="Restore default (Enabled)"
-                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] transition-colors cursor-pointer shrink-0 flex items-center justify-center"
+                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] shrink-0 flex items-center justify-center"
               >
                 <RotateCcwIcon size={13} />
               </button>
